@@ -1,52 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-  }
-  
-  header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+    background-color: #f4f4f9;
     text-align: center;
-  }
-  
-  header h1 {
+    color: #333;
+}
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+}
+header h1 {
     margin: 0;
-  }
-  
-  nav a {
-    color: #fff;
-    margin: 0 1rem;
+    font-size: 2.5rem;
+}
+header img {
+    max-width: 200px;
+    margin-top: 10px;
+}
+main {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: left;
+    line-height: 1.6;
+}
+ul {
+    list-style-type: disc;
+    margin: 0 auto;
+    padding-left: 20px;
+    text-align: left;
+    max-width: 600px;
+}
+p, ul, img {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.button-container {
+    margin: 30px 0;
+    text-align: center;
+}
+.button-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #003366;
     text-decoration: none;
-  }
-  
-  main {
-    padding: 1rem;
-  }
-  
-  form label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
-  }
-  
-  form input, form button {
-    display: block;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  button {
-    background: #007BFF;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: #0056b3;
-  }
-  
+    border-radius: 5px;
+    font-weight: 700;
+}
+.button-container a:hover {
+    background-color: #00509e;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
