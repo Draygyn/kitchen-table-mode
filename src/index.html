@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitchen Table Mode</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Kitchen Table Mode</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Tournaments</a>
+      <a href="#">PvP</a>
+      <a href="#">Guild Wars</a>
+    </nav>
+  </header>
+  <main>
+    <section id="tournament-setup">
+      <h2>Create a Tournament</h2>
+      <form id="tournament-form">
+        <label for="tournament-name">Tournament Name:</label>
+        <input type="text" id="tournament-name" name="tournament-name" required>
+        
+        <label for="player-count">Number of Players:</label>
+        <input type="number" id="player-count" name="player-count" min="2" max="200" required>
+
+        <button type="submit">Create Tournament</button>
+      </form>
+    </section>
+
+    <section id="tournament-display">
+      <h2>Tournament Brackets</h2>
+      <div id="brackets"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
+
