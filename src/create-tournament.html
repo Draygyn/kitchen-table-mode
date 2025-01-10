@@ -49,11 +49,10 @@
         }
         .form-group {
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
         }
-        .form-group input {
-            flex: 1;
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
         }
         .icon {
             margin-left: 10px;
@@ -83,18 +82,12 @@
     <div class="form-group">
         <label for="tournamentDate">Tournament Date:</label>
         <input type="date" id="tournamentDate" />
-        <span class="icon">
-            <img src="calendar-icon.png" alt="Calendar Icon" title="Select a date" />
-        </span>
     </div>
 
     <!-- Tournament Time -->
     <div class="form-group">
         <label for="tournamentTime">Tournament Time:</label>
         <input type="time" id="tournamentTime" />
-        <span class="icon">
-            <img src="clock-icon.png" alt="Clock Icon" title="Select a time" />
-        </span>
     </div>
 
     <!-- Rule Set Selection -->
@@ -148,14 +141,13 @@
         const tournamentDateInput = document.getElementById('tournamentDate');
         const tournamentTimeInput = document.getElementById('tournamentTime');
 
-        // Store selected rule set values
+        // Track selected rules
         let selectedRules = [];
 
         // Handle rule selection
         ruleSetSelect.addEventListener('change', () => {
-            const selectedOption = Array.from(ruleSetSelect.selectedOptions).map(option => option.text);
-
-            selectedRules = Array.from(new Set([...selectedRules, ...selectedOption])).slice(0, 6);
+            const selectedOptions = Array.from(ruleSetSelect.selectedOptions).map(option => option.text);
+            selectedRules = [...new Set([...selectedRules, ...selectedOptions])].slice(0, 6);
 
             selectedRulesContainer.innerHTML = '';
             selectedRules.forEach(rule => {
