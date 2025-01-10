@@ -66,9 +66,10 @@
 
         ruleSetSelect.addEventListener('change', () => {
             const selectedOptions = Array.from(ruleSetSelect.selectedOptions);
-            selectedRulesContainer.innerHTML = '';
+            selectedRulesContainer.innerHTML = ''; // Clear previous list
 
-            selectedOptions.forEach(option => {
+            // Display up to six rule sets
+            selectedOptions.slice(0, 6).forEach(option => {
                 const li = document.createElement('li');
                 li.textContent = option.text;
                 selectedRulesContainer.appendChild(li);
@@ -82,3 +83,4 @@
     </script>
 </body>
 </html>
+S
