@@ -49,6 +49,19 @@
         }
         .form-group {
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-group input {
+            flex: 1;
+        }
+        .icon {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .icon img {
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
@@ -57,7 +70,7 @@
 
     <!-- Disclaimer -->
     <div class="disclaimer">
-        <strong>Disclaimer:</strong> This site tracks players' wins and losses and matches them in the tournament. However, players must submit their own challenges to each other and ensure the correct rule sets are used. Failure to follow these rules may result in disqualification.
+        <strong>Disclaimer:</strong> This site tracks players' wins and losses and matches them in the tournament. Players must submit their own challenges and ensure the correct rule sets are used; failure to do so may result in disqualification. Check Discord for more information and set up notifications for upcoming battles and tournament start times.
     </div>
 
     <!-- Tournament Name -->
@@ -70,12 +83,18 @@
     <div class="form-group">
         <label for="tournamentDate">Tournament Date:</label>
         <input type="date" id="tournamentDate" />
+        <span class="icon">
+            <img src="calendar-icon.png" alt="Calendar Icon" title="Select a date" />
+        </span>
     </div>
 
     <!-- Tournament Time -->
     <div class="form-group">
         <label for="tournamentTime">Tournament Time:</label>
         <input type="time" id="tournamentTime" />
+        <span class="icon">
+            <img src="clock-icon.png" alt="Clock Icon" title="Select a time" />
+        </span>
     </div>
 
     <!-- Rule Set Selection -->
@@ -129,15 +148,19 @@
         const tournamentDateInput = document.getElementById('tournamentDate');
         const tournamentTimeInput = document.getElementById('tournamentTime');
 
+        // Store selected rule set values
+        let selectedRules = [];
+
         // Handle rule selection
         ruleSetSelect.addEventListener('change', () => {
-            const selectedOptions = Array.from(ruleSetSelect.selectedOptions);
-            selectedRulesContainer.innerHTML = '';
+            const selectedOption = Array.from(ruleSetSelect.selectedOptions).map(option => option.text);
 
-            // Display selected rule sets (up to 6)
-            selectedOptions.slice(0, 6).forEach(option => {
+            selectedRules = Array.from(new Set([...selectedRules, ...selectedOption])).slice(0, 6);
+
+            selectedRulesContainer.innerHTML = '';
+            selectedRules.forEach(rule => {
                 const li = document.createElement('li');
-                li.textContent = option.text;
+                li.textContent = rule;
                 selectedRulesContainer.appendChild(li);
             });
         });
@@ -147,7 +170,6 @@
             const tournamentName = tournamentNameInput.value.trim();
             const tournamentDate = tournamentDateInput.value;
             const tournamentTime = tournamentTimeInput.value;
-            const selectedRules = Array.from(ruleSetSelect.selectedOptions).map(option => option.text);
 
             if (!tournamentName) {
                 alert('Please enter a tournament name.');
@@ -162,7 +184,6 @@
                 return;
             }
 
-            // Success message for now (can later send to backend)
             alert(`Tournament "${tournamentName}" created on ${tournamentDate} at ${tournamentTime} with rules: ${selectedRules.join(', ')}`);
         });
     </script>
