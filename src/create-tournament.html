@@ -12,7 +12,7 @@
         <a href="index.html">Back to Home</a>
     </header>
     <main>
-        <p style="color: #cc0000; font-weight: bold; margin-bottom: 20px;">Please note: Players must adhere to the selected rules and settings when submitting challenges. Failure to do so may result in disqualification. Tournament creators can disqualify players for rule violations or no-shows. Forfeiting a battle, defined as not showing up within the designated time, will result in an automatic loss.</p>
+        <p style="color: #cc0000; font-weight: bold; margin-bottom: 20px;">Please note: Players must adhere to the selected rules and settings when submitting challenges. Failure to do so may result in disqualification.</p>
         <form>
             <label for="tournament-name">Tournament Name:</label>
             <input type="text" id="tournament-name" name="tournament-name" placeholder="Enter tournament name" required>
@@ -33,9 +33,7 @@
                     <option value="heavy-hitters">Heavy Hitters</option>
                 </select>
                 <p>Selected Rule Sets:</p>
-                <ul class="selected-rules" id="selected-rules">
-                    <!-- Dynamically updated -->
-                </ul>
+                <ul class="selected-rules" id="selected-rules" style="max-height: 150px; overflow-y: auto; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;"></ul>
             </div>
 
             <div class="mana-cap-container">
@@ -70,7 +68,7 @@
             const selectedOptions = Array.from(ruleSetSelect.selectedOptions);
             selectedRulesContainer.innerHTML = '';
 
-            selectedOptions.slice(0, 6).forEach(option => {
+            selectedOptions.forEach(option => {
                 const li = document.createElement('li');
                 li.textContent = option.text;
                 selectedRulesContainer.appendChild(li);
