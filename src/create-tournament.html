@@ -4,180 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Tournament</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 0;
-        }
-        h1, h3, label, .disclaimer {
-            color: #333;
-        }
-        input, select, button {
-            margin: 10px 0;
-            display: block;
-            font-size: 16px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            background: #f4f4f4;
-            margin: 5px 0;
-            padding: 5px;
-            border: 1px solid #ccc;
-        }
-        .submit-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
-        .disclaimer {
-            font-size: 14px;
-            background-color: #fff4c2;
-            border: 1px solid #ffeb99;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-        }
-        .icon {
-            margin-left: 10px;
-            cursor: pointer;
-        }
-        .icon img {
-            width: 24px;
-            height: 24px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Create Your Tournament</h1>
-
-    <!-- Disclaimer -->
-    <div class="disclaimer">
-        <strong>Disclaimer:</strong> This site tracks players' wins and losses and matches them in the tournament. Players must submit their own challenges and ensure the correct rule sets are used; failure to do so may result in disqualification. Check Discord for more information and set up notifications for upcoming battles and tournament start times.
+    <!-- Banner Section -->
+    <div class="banner">
+        <h1>Kitchen Table Mode Tracker</h1>
+        <img src="assets/splinterlands-logo.png" alt="Splinterlands Logo">
     </div>
 
-    <!-- Tournament Name -->
-    <div class="form-group">
-        <label for="tournamentName">Tournament Name:</label>
-        <input type="text" id="tournamentName" placeholder="Enter tournament name" />
+    <!-- Page Content -->
+    <div class="content">
+        <h2>Create Your Tournament</h2>
+
+        <!-- Disclaimer Section -->
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> To simplify tournament creation during third-party testing, all matches will use the following defaults:
+            <ul>
+                <li><strong>Allowed Cards:</strong> All Cards</li>
+                <li><strong>Summoner Level Caps:</strong> Experienced</li>
+            </ul>
+            Matches will play with randomized rule sets for now to keep things straightforward. Players will not need to select custom rule sets or elements.
+        </div>
+
+        <!-- Tournament Form -->
+        <form>
+            <!-- Tournament Name -->
+            <label for="tournamentName">Tournament Name:</label>
+            <input type="text" id="tournamentName" placeholder="Enter tournament name" required>
+
+            <!-- Tournament Date -->
+            <label for="tournamentDate">Tournament Date:</label>
+            <input type="date" id="tournamentDate" required>
+
+            <!-- Tournament Time -->
+            <label for="tournamentTime">Tournament Time:</label>
+            <input type="time" id="tournamentTime" required>
+
+            <!-- Default Settings Display -->
+            <div class="default-settings">
+                <h3>Default Settings:</h3>
+                <p><strong>Allowed Cards:</strong> All Cards</p>
+                <p><strong>Summoner Level Caps:</strong> Experienced</p>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Create Tournament</button>
+        </form>
     </div>
-
-    <!-- Tournament Date -->
-    <div class="form-group">
-        <label for="tournamentDate">Tournament Date:</label>
-        <input type="date" id="tournamentDate" />
-    </div>
-
-    <!-- Tournament Time -->
-    <div class="form-group">
-        <label for="tournamentTime">Tournament Time:</label>
-        <input type="time" id="tournamentTime" />
-    </div>
-
-    <!-- Rule Set Selection -->
-    <div class="form-group">
-        <label for="ruleSetSelect">Select Rule Sets (up to 6):</label>
-        <select id="ruleSetSelect" multiple>
-            <option value="standard">Standard</option>
-            <option value="aim-true">Aim True</option>
-            <option value="armored-up">Armored Up</option>
-            <option value="back-to-basics">Back to Basics</option>
-            <option value="broken-arrows">Broken Arrows</option>
-            <option value="close-range">Close Range</option>
-            <option value="earthquake">Earthquake</option>
-            <option value="equal-opportunity">Equal Opportunity</option>
-            <option value="equalizer">Equalizer</option>
-            <option value="even-stevens">Even Stevens</option>
-            <option value="explosive-weaponry">Explosive Weaponry</option>
-            <option value="fog-of-war">Fog of War</option>
-            <option value="healed-out">Healed Out</option>
-            <option value="heavy-hitters">Heavy Hitters</option>
-            <option value="holy-protection">Holy Protection</option>
-            <option value="keep-your-distance">Keep Your Distance</option>
-            <option value="little-league">Little League</option>
-            <option value="lost-legendaries">Lost Legendaries</option>
-            <option value="lost-magic">Lost Magic</option>
-            <option value="melee-mayhem">Melee Mayhem</option>
-            <option value="noxious-fumes">Noxious Fumes</option>
-            <option value="odd-ones-out">Odd Ones Out</option>
-            <option value="reverse-speed">Reverse Speed</option>
-            <option value="rise-of-the-commons">Rise of the Commons</option>
-            <option value="silenced-summoners">Silenced Summoners</option>
-            <option value="what-doesnt-kill-you">What Doesn't Kill You</option>
-            <option value="stampede">Stampede</option>
-            <option value="super-sneak">Super Sneak</option>
-            <option value="taking-sides">Taking Sides</option>
-            <option value="target-practice">Target Practice</option>
-        </select>
-    </div>
-
-    <!-- Selected Rule Sets -->
-    <h3>Selected Rule Sets:</h3>
-    <ul id="selectedRulesContainer"></ul>
-
-    <!-- Submit Button -->
-    <button class="submit-btn">Create Tournament</button>
-
-    <script>
-        const ruleSetSelect = document.getElementById('ruleSetSelect');
-        const selectedRulesContainer = document.getElementById('selectedRulesContainer');
-        const tournamentNameInput = document.getElementById('tournamentName');
-        const tournamentDateInput = document.getElementById('tournamentDate');
-        const tournamentTimeInput = document.getElementById('tournamentTime');
-
-        // Track selected rules
-        let selectedRules = [];
-
-        // Handle rule selection
-        ruleSetSelect.addEventListener('change', () => {
-            const selectedOptions = Array.from(ruleSetSelect.selectedOptions).map(option => option.text);
-            selectedRules = [...new Set([...selectedRules, ...selectedOptions])].slice(0, 6);
-
-            selectedRulesContainer.innerHTML = '';
-            selectedRules.forEach(rule => {
-                const li = document.createElement('li');
-                li.textContent = rule;
-                selectedRulesContainer.appendChild(li);
-            });
-        });
-
-        // Handle tournament creation
-        document.querySelector('.submit-btn').addEventListener('click', () => {
-            const tournamentName = tournamentNameInput.value.trim();
-            const tournamentDate = tournamentDateInput.value;
-            const tournamentTime = tournamentTimeInput.value;
-
-            if (!tournamentName) {
-                alert('Please enter a tournament name.');
-                return;
-            }
-            if (!tournamentDate || !tournamentTime) {
-                alert('Please select both a date and time.');
-                return;
-            }
-            if (selectedRules.length === 0) {
-                alert('Please select at least one rule set.');
-                return;
-            }
-
-            alert(`Tournament "${tournamentName}" created on ${tournamentDate} at ${tournamentTime} with rules: ${selectedRules.join(', ')}`);
-        });
-    </script>
 </body>
 </html>
