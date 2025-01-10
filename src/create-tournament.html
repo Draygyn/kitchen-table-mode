@@ -1,34 +1,48 @@
-<select id="rule-set" name="rule-set" multiple size="8" required>
-    <option value="reverse-speed">Reverse Speed</option>
-    <option value="rise-of-the-commons">Rise of the Commons</option>
-    <option value="silenced-summoners">Silenced Summoners</option>
-    <option value="spreading-fury">Spreading Fury</option>
-    <option value="stampede">Stampede</option>
-    <option value="standard">Standard</option>
-    <option value="super-sneak">Super Sneak</option>
-    <option value="taking-sides">Taking Sides</option>
-    <option value="target-practice">Target Practice</option>
-    <option value="unprotected">Unprotected</option>
-    <option value="up-close-and-personal">Up Close and Personal</option>
-    <option value="weak-magic">Weak Magic</option>
-    <option value="fog-of-war">Fog of War</option>
-    <option value="healed-out">Healed Out</option>
-    <option value="heavy-hitters">Heavy Hitters</option>
-    <option value="holy-protection">Holy Protection</option>
-    <option value="keep-your-distance">Keep Your Distance</option>
-    <option value="little-league">Little League</option>
-    <option value="lost-legendaries">Lost Legendaries</option>
-    <option value="lost-magic">Lost Magic</option>
-    <option value="melee-mayhem">Melee Mayhem</option>
-    <option value="noxious-fumes">Noxious Fumes</option>
-    <option value="odd-ones-out">Odd Ones Out</option>
-    <option value="aim-true">Aim True</option>
-    <option value="armored-up">Armored Up</option>
-    <option value="back-to-basics">Back to Basics</option>
-    <option value="broken-arrows">Broken Arrows</option>
-    <option value="close-range">Close Range</option>
-    <option value="earthquake">Earthquake</option>
-    <option value="equal-opportunity">Equal Opportunity</option>
-    <option value="even-stevens">Even Stevens</option>
-    <option value="explosive-weaponry">Explosive Weaponry</option>
-</select>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Tournament</title>
+</head>
+<body>
+    <h1>Create Your Tournament</h1>
+
+    <!-- Rule Set Dropdown -->
+    <label for="ruleSetSelect">Select Rule Set:</label>
+    <select id="ruleSetSelect" multiple>
+        <option value="reverse-speed">Reverse Speed</option>
+        <option value="rise-of-the-commons">Rise of the Commons</option>
+        <option value="silenced-summoners">Silenced Summoners</option>
+        <option value="spreading-fury">Spreading Fury</option>
+        <option value="stampede">Stampede</option>
+        <option value="standard">Standard</option>
+        <option value="super-sneak">Super Sneak</option>
+        <option value="taking-sides">Taking Sides</option>
+    </select>
+
+    <!-- Selected Rules List -->
+    <h3>Selected Rule Sets:</h3>
+    <ul id="selectedRulesContainer"></ul>
+
+    <script>
+        const ruleSetSelect = document.getElementById('ruleSetSelect');
+        const selectedRulesContainer = document.getElementById('selectedRulesContainer');
+
+        ruleSetSelect.addEventListener('change', () => {
+            // Get selected options as an array
+            const selectedOptions = Array.from(ruleSetSelect.selectedOptions);
+
+            // Clear previous list of selected rules
+            selectedRulesContainer.innerHTML = '';
+
+            // Display up to six selected rules
+            selectedOptions.slice(0, 6).forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option.text; // Add the option text to the list item
+                selectedRulesContainer.appendChild(li); // Append the list item to the container
+            });
+        });
+    </script>
+</body>
+</html>
