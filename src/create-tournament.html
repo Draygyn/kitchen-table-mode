@@ -1,86 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Tournament</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Create a Tournament</h1>
-        <a href="index.html">Back to Home</a>
-    </header>
-    <main>
-        <p style="color: #cc0000; font-weight: bold; margin-bottom: 20px;">Please note: Players must adhere to the selected rules and settings when submitting challenges. Failure to do so may result in disqualification.</p>
-        <form>
-            <label for="tournament-name">Tournament Name:</label>
-            <input type="text" id="tournament-name" name="tournament-name" placeholder="Enter tournament name" required>
-
-            <label for="start-date">Start Date:</label>
-            <input type="text" id="start-date" name="start-date" placeholder="MM/DD" required onfocus="(this.type='date')" onblur="(this.type='text')">
-
-            <div class="rule-set-container">
-                <label for="rule-set">Select Rule Sets (up to 6):</label>
-                <select id="rule-set" name="rule-set" multiple size="8" required>
-                    <option value="standard">Standard</option>
-                    <option value="reverse-speed">Reverse Speed</option>
-                    <option value="spreading-fury">Spreading Fury</option>
-                    <option value="super-sneak">Super Sneak</option>
-                    <option value="fog-of-war">Fog of War</option>
-                    <option value="odd-ones-out">Odd Ones Out</option>
-                    <option value="melee-mayhem">Melee Mayhem</option>
-                    <option value="heavy-hitters">Heavy Hitters</option>
-                </select>
-                <p>Selected Rule Sets:</p>
-                <ul class="selected-rules" id="selected-rules" style="max-height: 150px; overflow-y: auto; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;"></ul>
-            </div>
-
-            <div class="mana-cap-container">
-                <label for="mana-cap">Mana Cap (Enter or Choose Random):</label>
-                <input type="number" id="mana-cap" name="mana-cap" placeholder="Enter mana cap">
-                <button type="button" onclick="setRandomManaCap()">Randomize Mana Cap</button>
-            </div>
-
-            <div class="elements-container">
-                <label for="elements">Allowed Elements:</label>
-                <select id="elements" name="elements" multiple size="6">
-                    <option value="fire">Fire</option>
-                    <option value="water">Water</option>
-                    <option value="earth">Earth</option>
-                    <option value="life">Life</option>
-                    <option value="death">Death</option>
-                    <option value="dragon">Dragon</option>
-                </select>
-            </div>
-
-            <label for="description">Tournament Description:</label>
-            <textarea id="description" name="description" rows="4" placeholder="Enter a brief description"></textarea>
-
-            <button type="submit">Create Tournament</button>
-        </form>
-    </main>
-    <script>
-        const ruleSetSelect = document.getElementById('rule-set');
-        const selectedRulesContainer = document.getElementById('selected-rules');
-
-        ruleSetSelect.addEventListener('change', () => {
-            const selectedOptions = Array.from(ruleSetSelect.selectedOptions);
-            selectedRulesContainer.innerHTML = ''; // Clear previous list
-
-            // Display up to six rule sets
-            selectedOptions.slice(0, 6).forEach(option => {
-                const li = document.createElement('li');
-                li.textContent = option.text;
-                selectedRulesContainer.appendChild(li);
-            });
-        });
-
-        function setRandomManaCap() {
-            const randomManaCap = Math.floor(Math.random() * 99) + 1;
-            document.getElementById('mana-cap').value = randomManaCap;
-        }
-    </script>
-</body>
-</html>
-S
+<select id="rule-set" name="rule-set" multiple size="8" required>
+    <option value="reverse-speed">Reverse Speed</option>
+    <option value="rise-of-the-commons">Rise of the Commons</option>
+    <option value="silenced-summoners">Silenced Summoners</option>
+    <option value="spreading-fury">Spreading Fury</option>
+    <option value="stampede">Stampede</option>
+    <option value="standard">Standard</option>
+    <option value="super-sneak">Super Sneak</option>
+    <option value="taking-sides">Taking Sides</option>
+    <option value="target-practice">Target Practice</option>
+    <option value="unprotected">Unprotected</option>
+    <option value="up-close-and-personal">Up Close and Personal</option>
+    <option value="weak-magic">Weak Magic</option>
+    <option value="fog-of-war">Fog of War</option>
+    <option value="healed-out">Healed Out</option>
+    <option value="heavy-hitters">Heavy Hitters</option>
+    <option value="holy-protection">Holy Protection</option>
+    <option value="keep-your-distance">Keep Your Distance</option>
+    <option value="little-league">Little League</option>
+    <option value="lost-legendaries">Lost Legendaries</option>
+    <option value="lost-magic">Lost Magic</option>
+    <option value="melee-mayhem">Melee Mayhem</option>
+    <option value="noxious-fumes">Noxious Fumes</option>
+    <option value="odd-ones-out">Odd Ones Out</option>
+    <option value="aim-true">Aim True</option>
+    <option value="armored-up">Armored Up</option>
+    <option value="back-to-basics">Back to Basics</option>
+    <option value="broken-arrows">Broken Arrows</option>
+    <option value="close-range">Close Range</option>
+    <option value="earthquake">Earthquake</option>
+    <option value="equal-opportunity">Equal Opportunity</option>
+    <option value="even-stevens">Even Stevens</option>
+    <option value="explosive-weaponry">Explosive Weaponry</option>
+</select>
