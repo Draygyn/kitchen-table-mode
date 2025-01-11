@@ -17,8 +17,9 @@ header {
 }
 
 header .banner {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Adjusts the banner to fit the width of the page */
+    max-height: 300px; /* Limits the height to make it banner-sized */
+    object-fit: cover; /* Ensures the image scales properly without distortion */
 }
 
 header h1 {
