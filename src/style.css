@@ -1,21 +1,37 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('assets/background.png') no-repeat center center fixed;
+    background: url('../assets/background.png') no-repeat center center fixed;
     background-size: cover;
     color: #333;
 }
+
+/* Header styles */
 header {
     text-align: center;
     padding: 1rem 0;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
 }
+
 header .banner {
     width: 100%;
     height: auto;
 }
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Navigation styles */
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -24,15 +40,23 @@ nav ul {
     justify-content: center;
     background-color: #333;
 }
+
+nav ul li {
+    margin: 0;
+}
+
 nav ul li a {
     display: block;
     padding: 1rem;
     color: white;
     text-decoration: none;
 }
+
 nav ul li a:hover {
     background-color: #0078d4;
 }
+
+/* Main content styles */
 main {
     padding: 2rem;
     text-align: center;
@@ -40,6 +64,17 @@ main {
     margin: 2rem;
     border-radius: 10px;
 }
+
+main h2 {
+    font-size: 2rem;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+}
+
+/* Footer styles */
 footer {
     text-align: center;
     padding: 1rem 0;
