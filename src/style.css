@@ -16,19 +16,18 @@ header {
 }
 
 .banner-container {
-    width: 100%; /* Full width of the page */
-    height: 200px; /* Height of the banner area */
+    width: 100%; /* Full width */
+    height: 300px; /* Fixed height for the banner */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensures no overflow beyond container */
-    background-color: #000; /* Optional for better appearance */
+    overflow: hidden;
 }
 
 .banner {
-    width: auto; /* Scale based on height */
-    height: 100%; /* Fill the container height */
-    display: block;
+    width: 100%; /* Full width */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures proper scaling */
 }
 
 /* Header text */
