@@ -15,14 +15,23 @@ header {
     padding: 1rem 0;
 }
 
-header .banner {
+.banner-container {
     width: 100%; /* Full width of the page */
-    height: 150px; /* Fixed banner height */
-    object-fit: cover; /* Ensures proper scaling without distortion */
-    display: block; /* Ensures proper layout behavior */
-    margin: 0 auto; /* Centers the banner horizontally */
+    height: 200px; /* Height of the banner area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures no overflow beyond container */
+    background-color: #000; /* Optional for better appearance */
 }
 
+.banner {
+    width: auto; /* Scale based on height */
+    height: 100%; /* Fill the container height */
+    display: block;
+}
+
+/* Header text */
 header h1 {
     margin: 10px 0;
     font-size: 2rem;
