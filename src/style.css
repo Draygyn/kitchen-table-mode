@@ -11,30 +11,33 @@ body {
 /* Header styles */
 header {
     text-align: center;
-    padding: 1rem 0;
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    padding: 1rem 0;
 }
 
 header .banner {
-    width: 100%; /* Adjusts the banner to fit the width of the page */
-    max-height: 300px; /* Limits the height to make it banner-sized */
-    object-fit: cover; /* Ensures the image scales properly without distortion */
+    width: 100%; /* Full width of the page */
+    height: 150px; /* Fixed banner height */
+    object-fit: cover; /* Ensures proper scaling without distortion */
+    display: block; /* Ensures proper layout behavior */
+    margin: 0 auto; /* Centers the banner horizontally */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+    margin: 10px 0;
+    font-size: 2rem;
+    color: white;
 }
 
 header p {
-    margin: 0;
+    margin: 5px 0 10px 0;
     font-size: 1.2rem;
+    color: white;
 }
 
 /* Navigation styles */
 nav ul {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
